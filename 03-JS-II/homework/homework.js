@@ -77,14 +77,27 @@ function esDiezOCinco(numero) {
   // Devuelve "true" si "numero" es 10 o 5
   // De lo contrario, devuelve "false"
   // Tu código:
-  return numero === 10 || numero === 5;
+  /*return numero === 10 || numero === 5;*/
+  /*switch (numero) {
+    case 5: return true;
+    case 10: return true;
+    default: return false;
+  }*/
+  if (numero === 10 || numero === 5) {
+    return true;
+  }
+  return false;
 }
 
 function estaEnRango(numero) {
   // Devuelve "true" si "numero" es menor que 50 y mayor que 20
   // De lo contrario, devuelve "false"
   // Tu código:
-  return numero > 20 && numero < 50;
+  /*return numero > 20 && numero < 50;*/
+  if (numero > 20 && numero < 50) {
+    return true;
+  }
+  return false;
 }
 
 function esEntero(numero) {
@@ -95,7 +108,15 @@ function esEntero(numero) {
   // De lo contrario, devuelve "false"
   // Pista: Puedes resolver esto usando `Math.floor`
   // Tu código:
-  return Number.isInteger(numero);
+  /*return Number.isInteger(numero);*/
+  /*if (numero % 1 === 0) {
+    return true;
+  }
+  return false;*/
+if ((numero - Math.floor(numero)) === 0) /*Con o sin los parentesis en la resta funciona igual*/{
+  return true;
+}
+return false;
 }
 
 function fizzBuzz(numero) {
@@ -126,7 +147,7 @@ function operadoresLogicos(num1, num2, num3) {
   }
   if (num1 < 0 || num2 < 0 || num3 < 0) {
     return "Hay negativos";    
-  } else if (num1 > num2 && num1 > num3) {
+  } else if (num1 > 0 && num1 > num2 && num1 > num3) {
     return "Número 1 es mayor y positivo";
   } else if (num3 > num2 && num3 > num1) {
     return num3 + 1;
@@ -141,7 +162,7 @@ function esPrimo(numero) {
   // Pista: un número primo solo es divisible por sí mismo y por 1
   // Pista 2: Puedes resolverlo usando un bucle `for`
   // Nota: Los números 0 y 1 NO son considerados números primos
-    if (numero <= 1) {
+    if (numero === 0 || numero === 1) {
       return false;
     }
     for (var i = 2; i < numero; i++) {
@@ -167,9 +188,9 @@ function tablaDelSeis(){
   //Escribe una función que muestre la tabla de multiplicar del 6 (del 0 al 60).
   //La función devuelve un array con los resultados de la tabla de multiplicar del 6 en orden creciente.
   //Escribe tu código aquí   
-  let arrayX6 = [];
-  for (let i = 0; i < 61; i+=6 ) {
-    arrayX6.push(i);
+  var arrayX6 = [];
+  for (var i = 0; i<11; i++ ) {
+      arrayX6.push(i * 6);
   }
   return arrayX6;
 }
@@ -177,25 +198,29 @@ function tablaDelSeis(){
 function tieneTresDigitos(numero){
   //Leer un número entero y retornar true si tiene 3 dígitos. Caso contrario, retorna false.
   //Escribe tu código aquí
-  if (numero >= 100 && numero <= 999) {
+  /*if (numero >= 100 && numero <= 999) {
     return true;
   } else {
     return false;
+  }*/
+  var x = numero.toString();
+  if(x.length === 3) {
+    return true;
   }
+  return false;
 }
 
 function doWhile(numero) {
   //Implementar una función tal que vaya aumentando el valor recibido en 5 hasta un límite de 8 veces
   //Retornar el valor final.
   //Usar el bucle do ... while.
-  var x = numero;
   var i = 0
   do {
-    x = x + 5;
+    numero += 5;
     i++;
   }
   while (i < 8);
-  return x;
+  return numero;
 }
 
 
